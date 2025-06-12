@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Job Portal</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+    }
+	html {
+	  scroll-padding-top: 70px;
+	}
+
+    html, body {
+      height: 100%;
+      font-family: 'Inter', sans-serif;
+      scroll-behavior: smooth;
+      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 60px;
+      background: rgba(0,0,0,0.85);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 30px;
+      z-index: 999;
+    }
+    .logo {
+      font-weight: 700;
+      font-size: 1.6rem;
+      color: #f4a261;
+      cursor: pointer;
+    }
+    nav {
+      display: flex;
+      gap: 24px;
+      font-weight: 600;
+    }
+    nav a {
+      color: #d0d0d0;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.25s ease;
+    }
+    nav a:hover {
+      color: #f4a261;
+    }
+    .btn-login-header, .btn-register-header {
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-weight: 700;
+      cursor: pointer;
+      border: none;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+    }
+    .btn-login-header {
+      background-color: transparent;
+      color: #f4a261;
+      border: 2px solid #f4a261;
+    }
+    .btn-login-header:hover {
+      background-color: #f4a261;
+      color: #222;
+    }
+    .btn-register-header {
+      background-color: #2a9d8f;
+      color: #fff;
+      margin-left: 12px;
+    }
+    .btn-register-header:hover {
+      background-color: #1b5278;
+    }
+
+    section {
+      height: 100vh;
+      padding: 120px 20px 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0,0,0,0.6);
+      text-align: center;
+    }
+    section > div {
+      max-width: 800px;
+      width: 100%;
+    }
+    section h1, section h2 {
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #f4a261;
+    }
+    section h1 {
+      font-size: 3rem;
+    }
+    section h2 {
+      font-size: 2.2rem;
+    }
+    section p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #d0d0d0;
+    }
+    .btn-group {
+      margin-top: 2rem;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    button {
+      padding: 14px 24px;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      color: #222;
+      background-color: #f4a261;
+    }
+    button:hover {
+      background-color: #e76f51;
+      color: #fff;
+    }
+    .btn-register {
+      background-color: #2a9d8f;
+      color: #fff;
+    }
+    .btn-register:hover {
+      background-color: #1b5278;
+    }
+
+    footer {
+      background: rgba(0, 0, 0, 0.85);
+      color: #ccc;
+      padding: 30px 20px;
+      text-align: center;
+    }
+    footer h3 {
+      color: #f4a261;
+      margin-bottom: 12px;
+    }
+    footer p {
+      margin: 6px 0;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 480px) {
+      nav {
+        display: none;
+      }
+      .btn-group {
+        flex-direction: column;
+        align-items: center;
+      }
+      button {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo" onclick="location.href='index.html'">JobPortal</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#how">How It Works</a>
+    <a href="#footer">Contact</a>
+  </nav>
+  <div>
+    <button class="btn-login-header" onclick="location.href='login.html'">Login</button>
+    <button class="btn-register-header" onclick="location.href='register.html'">Register</button>
+  </div>
+</header>
+
+<section id="home">
+  <div>
+    <h1>Find Your Dream Job</h1>
+    <p>Thousands of jobs posted daily. Sign up and get hired faster.</p>
+    <div class="btn-group">
+      <button onclick="location.href='login.html'">Login</button>
+      <button class="btn-register" onclick="location.href='register.html'">Register</button>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div>
+    <h2>About Us</h2>
+    <p>JobPortal is dedicated to connecting job seekers with employers worldwide. We make job hunting simple, fast, and reliable.</p>
+  </div>
+</section>
+
+<section id="services">
+  <div>
+    <h2>Services</h2>
+    <p><strong>For Employers:</strong> Post jobs, manage applications, and hire top talent.</p>
+    <p><strong>For Job Seekers:</strong> Search for jobs, create profiles, and get matched instantly.</p>
+  </div>
+</section>
+
+<section id="how">
+  <div>
+    <h2>How It Works</h2>
+    <p>Sign up in minutes, complete your profile, and start applying to jobs that suit your skills. Get notified when recruiters view your application.</p>
+  </div>
+</section>
+
+<footer id="footer">
+  <h3>Contact Us</h3>
+  <p>Email: <a href="mailto:jobloomhq@gmail.com" style="color: #f4a261;">jobloomhq@gmail.com</a></p>
+  <p>Phone: +91 8464050544</p>
+  <p>Address: 4-32/7, Patel Nagar, Hyderabad, Telangana, India</p>
+  <p style="margin-top: 1rem;">&copy; 2025 JobPortal. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

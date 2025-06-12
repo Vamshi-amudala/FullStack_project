@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+    <h2>User Registration</h2>
+    <form id="registerForm">
+        <label>Full Name:</label><br>
+        <input type="text" name="fullName" required><br><br>
+
+        <label>Email:</label><br>
+        <input type="email" name="email" required><br><br>
+
+        <label>Password:</label><br>
+        <input type="password" name="password" required><br><br>
+
+        <label>Role:</label><br>
+        <select name="role" required>
+            <option value="JOB_SEEKER">Job Seeker</option>
+            <option value="EMPLOYER">Employer</option>
+        </select><br><br>
+
+        <button type="submit">Register</button>
+    </form>
+
+    <p id="registerMessage"></p>
+
+	<script>
+	    document.getElementById("registerForm").addEventListener("submit", async function(e) {
+	        e.preventDefault();
+	        const formData = new FormData(this);
+	        const payload = {
+	            fullName: formData.get("fullName"),
+	            email: formData.get("email"),
+	            password: formData.get("password"),
+	            role: formData.get("role")
+	        };
+
+	        try {
+	            const response = await fetch("/api/auth/register", {
+	                method: "POST",
+	                headers: {
+	                    "Content-Type": "application/json"
+	                },
+	                body: JSON.stringify(payload)
+	            });
+
+	            const message = await response.text();
+	            document.getElementById("registerMessage").textContent = message;
+
+	            console.log("Status:", response.status);
+	            console.log("OK:", response.ok);
+	            console.log("Message:", message);
+
+	            if (response.ok) {
+	                setTimeout(() => {
+	                    console.log("Redirecting...");
+	                    window.location.href = "/login";
+	                }, 1000);
+	            } else {
+	                document.getElementById("registerMessage").style.color = "red";
+	            }
+
+	        } catch (err) {
+	            console.error("Error:", err);
+	            document.getElementById("registerMessage").textContent = "Something went wrong: " + err.message;
+	            document.getElementById("registerMessage").style.color = "red";
+	        }
+	    });
+	</script>
+
+
+	
+</body>
+</html>
